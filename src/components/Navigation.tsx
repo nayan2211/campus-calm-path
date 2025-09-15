@@ -11,6 +11,8 @@ import {
   X,
   Shield
 } from "lucide-react";
+import LanguageSelector from "./LanguageSelector";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 interface NavigationProps {
   activeSection: string;
@@ -19,15 +21,16 @@ interface NavigationProps {
 
 const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   const navItems = [
-    { id: 'home', label: 'Home', icon: Heart },
-    { id: 'assessment', label: 'Assessment', icon: BarChart3 },
-    { id: 'chat', label: 'AI Support', icon: MessageCircle },
-    { id: 'resources', label: 'Resources', icon: BookOpen },
-    { id: 'appointments', label: 'Appointments', icon: Calendar },
-    { id: 'community', label: 'Community', icon: Users },
-    { id: 'anonymous', label: 'Anonymous Mode', icon: Shield },
+    { id: 'home', label: t('home'), icon: Heart },
+    { id: 'assessment', label: t('assessment'), icon: BarChart3 },
+    { id: 'chat', label: t('aiSupport'), icon: MessageCircle },
+    { id: 'resources', label: t('resources'), icon: BookOpen },
+    { id: 'appointments', label: t('appointments'), icon: Calendar },
+    { id: 'community', label: t('community'), icon: Users },
+    { id: 'anonymous', label: t('anonymousMode'), icon: Shield },
   ];
 
   return (
@@ -43,7 +46,7 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-1">
+          <div className="hidden md:flex items-center space-x-1">
             {navItems.map((item) => {
               const Icon = item.icon;
               return (
@@ -59,6 +62,7 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
                 </Button>
               );
             })}
+            <LanguageSelector />
           </div>
 
           {/* Mobile menu button */}
@@ -99,6 +103,9 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
                   </Button>
                 );
               })}
+              <div className="pt-2 border-t border-border mt-2">
+                <LanguageSelector />
+              </div>
             </div>
           </div>
         )}

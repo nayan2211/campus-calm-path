@@ -5,6 +5,7 @@ import AssessmentPage from "@/components/AssessmentPage";
 import ChatPage from "@/components/ChatPage";
 import ResourcesPage from "@/components/ResourcesPage";
 import AppointmentsPage from "@/components/AppointmentsPage";
+import AnonymousPage from "@/components/AnonymousPage";
 
 const Index = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -30,6 +31,8 @@ const Index = () => {
             </div>
           </div>
         );
+      case 'anonymous':
+        return <AnonymousPage onSectionChange={setActiveSection} />;
       default:
         return <HomePage onSectionChange={setActiveSection} />;
     }

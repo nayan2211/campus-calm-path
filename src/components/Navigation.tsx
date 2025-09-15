@@ -8,7 +8,8 @@ import {
   Users, 
   BarChart3,
   Menu,
-  X
+  X,
+  Shield
 } from "lucide-react";
 
 interface NavigationProps {
@@ -26,6 +27,7 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
     { id: 'resources', label: 'Resources', icon: BookOpen },
     { id: 'appointments', label: 'Appointments', icon: Calendar },
     { id: 'community', label: 'Community', icon: Users },
+    { id: 'anonymous', label: 'Anonymous Mode', icon: Shield },
   ];
 
   return (

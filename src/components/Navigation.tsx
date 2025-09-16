@@ -36,7 +36,7 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
   return (
     <nav className="bg-card border-b border-border shadow-soft">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-start items-center h-16 gap-8">
           {/* Logo */}
           <div className="flex items-center space-x-2">
             <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
@@ -66,7 +66,7 @@ const Navigation = ({ activeSection, onSectionChange }: NavigationProps) => {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden ml-auto">
             <Button
               variant="ghost"
               size="sm"
